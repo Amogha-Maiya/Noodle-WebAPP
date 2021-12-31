@@ -5,6 +5,11 @@ const mongoose = require('mongoose')
 var bodyParser = require("body-parser")
 const { events } = require('./models/article')
 const app = express();
+require('dotenv').config()
+const passport = require('passport');
+const cookieSession = require('cookie-session')
+const { name } = require('ejs')
+require('./passport-setup');
 
 app.use(bodyParser.json())
 app.use(express.static('public'))
@@ -34,31 +39,73 @@ app.set('views', './views')
 app.use(express.urlencoded({ extended: false }))
 app.set('view engine', 'ejs')
 
-app.get('', (req, res) => {
-    res.render('index')
-})
-app.post("", (req, res) => {
-    var name = req.body.name;
-    var email = req.body.email;
-    var phno = req.body.phno;
-    var password = req.body.password;
 
-    var data = {
-        "name": name,
-        "email": email,
-        "phno": phno,
-        "password": password
-    }
-    app.locals.name = name;
-    global.gname = name
-    db.collection('users').insertOne(data, (err, collection) => {
-        if (err) {
-            throw err;
+
+
+
+app.use(cookieSession({
+        name: 'tuto-session',
+        keys: ['key1', 'key2']
+    }))
+    // Auth middleware that checks if the user is logged in
+const isLoggedIn = (req, res, next) => {
+        if (req.user) {
+            next();
+        } else {
+            res.sendStatus(401);
         }
-        console.log("Record Inserted Successfully");
-    });
-    return res.redirect('/home')
+    }
+    // Initializes passport and passport sessions
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+// Example protected and unprotected routes
+app.get('/', (req, res) => res.render('index'))
+app.get('/failed', (req, res) => res.send('You Failed to log in!'))
+
+// In this route you can see that if the user is logged in u can acess his info in: req.user
+app.get('/good', isLoggedIn, (req, res) => {
+        res.render("home", { name: req.user.displayName, pic: req.user.photos[0].value, email: req.user.emails[0].value })
+    })
+    // Auth Routes
+app.get('/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
+
+app.get('/google/callback', passport.authenticate('google', { failureRedirect: '/failed' }),
+    function(req, res) {
+        // Successful authentication, redirect home.
+        res.redirect('/good');
+    }
+);
+app.get('/logout', (req, res) => {
+    req.session = null;
+    req.cookie = null;
+    req.logout();
+    res.redirect('/');
 })
+
+// app.post("/", (req, res) => {
+//     var name = req.body.name;
+//     var email = req.body.email;
+//     var phno = req.body.phno;
+//     var password = req.body.password;
+
+//     var data = {
+//         "name": name,
+//         "email": email,
+//         "phno": phno,
+//         "password": password
+//     }
+//     app.locals.name = name;
+//     global.gname = name
+//     db.collection('users').insertOne(data, (err, collection) => {
+//         if (err) {
+//             throw err;
+//         }
+//         console.log("Record Inserted Successfully");
+//     });
+//     return res.redirect('/home')
+// })
 
 app.get('/signin', (req, res) => {
     res.render('signin')
@@ -66,22 +113,22 @@ app.get('/signin', (req, res) => {
 
 //use alternative of body-parser later
 app.get('/home', (req, res) => {
-    res.render('home', { error: false })
+    res.redirect('/good')
 })
 app.post('/home', (req, res) => {
-    res.render('home')
+    res.redirect('/good')
 })
 
 app.get('/form', (req, res) => {
     res.render('form');
 })
-app.get('/about', (req, res) => {
+app.get('/about', isLoggedIn, (req, res) => {
     res.render('about');
 })
 
 //test 
-app.get('/blog', async(req, res) => {
-    const articles = await Article.find().sort({ createdAt: 'desc' })
+app.get('/blog', isLoggedIn, async(req, res) => {
+    const articles = await Article.find().sort({ createdAt: 'desc' }).limit(9)
     res.render('blog', { articles: articles })
 })
 
@@ -105,16 +152,16 @@ app.post('/blog', async(req, res) => {
         res.render('404')
     }
 })
-app.get('/contact', (req, res) => {
+app.get('/contact', isLoggedIn, (req, res) => {
     res.render('contact');
 })
 
-app.get('/event', async(req, res) => {
-    const events = await Event.find().sort({ createdAt: 'desc' })
+app.get('/event', isLoggedIn, async(req, res) => {
+    const events = await Event.find().sort({ createdAt: 'desc' }).limit(5)
 
     // const name = await Article.find().sort({ createdAt: 'desc' }).limit(1)
 
-    res.render('event', { events: events, name: gname })
+    res.render('event', { events: events, name: req.user.displayName })
 })
 app.get('/event/new', (req, res) => {
 

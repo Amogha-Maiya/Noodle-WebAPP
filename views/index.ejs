@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -13,9 +13,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,700&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body> -->
 
-    <!-- <div class="container">
+<!-- <div class="container">
         <div class="row">
             <div class="col-md-3">
 
@@ -37,7 +37,7 @@
             </div>
         </div>
     </div> -->
-    <form class="login-form" method="POST">
+<!-- <form class="login-form" method="POST">
         <p class="login-text">
             <span class="fa-stack fa-lg">
             <i class="fa fa-circle fa-stack-2x" style="font-size: 60px;"></i>
@@ -48,11 +48,11 @@
             <br>
             <br>
         </p>
-        <!-- <input type="email" class="login-username" autofocus="true" required="true" placeholder="Email" />
+         <input type="email" class="login-username" autofocus="true" required="true" placeholder="Email" />
         <input type="password" class="login-password" required="true" placeholder="Password" />
         <input type="submit" name="Login" value="Login" class="login-submit" /> -->
 
-        <input type="text" class="login-username" id="name" name="name" placeholder="Name" required />
+<!-- <input type="text" class="login-username" id="name" name="name" placeholder="Name" required />
         <br><br>
         <input type="email" class="login-username" id="email" name="email" placeholder="Email" required />
         <br><br>
@@ -68,7 +68,159 @@
         <div class="underlay-black">
             <h1 style="text-align: center;color:white;">Welcome to NOODLE!</h1>
         </div>
+</body>
 
+</html> -->
+<!doctype html>
+<html>
+
+<head>
+    <title>Welcome to Noodle!!</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <!-- load bootstrap css -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
+    <!-- load fontawesome -->
+    <style>
+        * {
+            font-family: 'Roboto Mono', monospace;
+            /* font-weight: bolder; */
+        }
+        
+        body {
+            padding-top: 80px;
+            background: url('../img/nitte.jpeg');
+            /* -webkit-filter: grayscale(100%); */
+            /* -webkit-filter: grayscale(100%); */
+        }
+        
+        .google-btn {
+            margin: 25px;
+            width: 60%;
+            min-width: 20px;
+            max-width: 60px;
+            height: 57px;
+            background-color: black;
+            border-radius: 2px;
+            box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .2);
+            cursor: pointer;
+            cursor: hand;
+            align-self: center;
+            user-select: none;
+            transition: all 400ms ease 0s;
+            display: flex;
+            border-radius: 50%;
+        }
+        /* .google-btn .google-icon-wrapper {
+            position: fixed;
+            margin-top: 0px;
+            margin-left: 0px;
+            width: 5px;
+            height: 5px;
+            border-radius: 2px;
+            user-select: none
+        } */
+        
+        .google-btn .google-icon-svg {
+            position: absolute;
+            margin-top: 8px;
+            margin-left: 11px;
+            margin-bottom: 0px;
+            width: 38px;
+            height: 38px;
+            user-select: none;
+        }
+        /* .google-btn .btn-text {
+            float: right;
+            margin: 11px 14px 35px 40px;
+            color: #757575;
+            font-size: 30px;
+            letter-spacing: .2px;
+            font-family: Roboto;
+            user-select: none;
+            width: 15px;
+            border-radius: 90px;
+        } */
+        
+        .google-btn:hover {
+            box-shadow: 0 3px 8px rgba(117, 117, 117, .5);
+            user-select: none
+        }
+        
+        .google-btn:active {
+            box-shadow: 0 1px 1px #757575;
+            background: #F8F8F8;
+            color: #fff;
+            user-select: none
+        }
+        
+        .normal-btn {
+            margin: 30px;
+            width: auto;
+            display: inline-block;
+            max-width: 9px;
+            height: 42px;
+            background-color: #fcfcfc;
+            border-radius: 2px;
+            box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .2);
+            cursor: pointer;
+            cursor: hand;
+            align-self: center;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            transition: all 400ms ease 0s
+        }
+        
+        .normal-btn .btn-text {
+            float: left;
+            margin: 11px 14px 11px 14px;
+            color: #757575;
+            font-size: 50px;
+            letter-spacing: .2px;
+            font-family: Roboto;
+            user-select: none
+        }
+        
+        .normal-btn:hover {
+            box-shadow: 0 3px 8px rgba(117, 117, 117, .5);
+            user-select: none
+        }
+        
+        .normal-btn:active {
+            box-shadow: 0 1px 1px #757575;
+            background: #F8F8F8;
+            color: #fff;
+            user-select: none
+        }
+    </style>
+</head>
+
+<body style="background-size: cover;">
+    <div class="container">
+
+        <div class=" text-center">
+            <h1><span class="fa fa-lock" style="margin-top: 150px;"></span><big><strong style="color: black ;"> Welcome To Noodle</strong></big></h1>
+
+            <h3>Login with your google account</h3>
+
+            <!-- <a href="/google" class="btn btn-danger"><span class="fa fa-google"></span> Google</a> -->
+            <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:400" />
+
+            <a href="/google">
+                <div class="google-btn" style="margin-left: 45%;">
+                    <div class="google-icon-wrapper">
+                        <img class="google-icon-svg" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" />
+                    </div>
+                    <!-- <p class="btn-text"><b>Sign in with Google</b></p> -->
+                </div>
+            </a>
+        </div>
+
+    </div>
 </body>
 
 </html>

@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <style>
+    * {
+        font-family: 'Inconsolata', monospace;
+        font-weight: 800;
+    }
+    
     button {
         width: 48px;
         height: 48px;
@@ -30,6 +35,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
 
@@ -37,14 +43,14 @@
     <h1 style="color: white;text-align: center;font-size: 50px;">
         <%= article.title %>
     </h1>
-    <div style="color: black;font-size: 25px;">
+    <div style="color: black;font-size: 25px; text-align: center;">
         Date Published:
         <%= article.createdAt.toLocaleDateString() %>
     </div><br><br>
     <div style="color: black;font-size: 27px;border-radius: 61px;
     background: linear-gradient(145deg, #e6b78a, #ffd9a4);
     box-shadow:  9px 9px 19px #a18060,
-                 -9px -9px 19px #ffffd2;;padding: 6%;"><br><br><br>
+                 -9px -9px 19px #ffffd2;;padding: 5%; padding-top: 0px;"><br><br><br>
         <%= article.description %>
     </div>
     <br><br><br>

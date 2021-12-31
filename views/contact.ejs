@@ -28,7 +28,7 @@
         }
         
         body {
-            background-color: aqua;
+            background-color: #ffcb99;
             font-family: "Raleway", sans-serif;
         }
         
@@ -214,17 +214,15 @@
             var inputVal = document.getElementById("message1").value;
             var inputMes = document.getElementById("message").value;
             Email.send({
-                    Host: "smtp.gmail.com",
-                    Username: "noodlenmamit@gmail.com",
-                    Password: "noodlenitte@123",
-                    To: '4nm19cs019@nmamit.in',
-                    From: "noodlenmamit@gmail.com",
-                    Subject: inputVal,
-                    Body: inputMes,
-                })
-                .then(function(message) {
-                    alert("mail sent successfully")
-                });
+                Host: "smtp.gmail.com",
+                Username: "noodlenmamit@gmail.com",
+                Password: "noodlenitte@123",
+                To: '4nm19cs019@nmamit.in',
+                From: "noodlenmamit@gmail.com",
+                Subject: inputVal,
+                Body: inputMes,
+            })
+            alert("Message Sent Successfully!!")
         }
     </script>
 </body>
