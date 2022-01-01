@@ -1,5 +1,5 @@
 # Noodle-WebAPP
-# ABSTRACT:
+ <h2>ABSTRACT:<h2>
 This project provides a smooth user interface where a user can
 see all the events happening in college. The application also
 allows the user to create blogs and view other blogs. If there is
