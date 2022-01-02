@@ -48,6 +48,10 @@ around college.
 ### Blog Section : 
 ![73fbe995-38a0-4181-a79c-b42286760352](https://user-images.githubusercontent.com/68181503/147834434-e0c93c65-3d72-4adf-bc0b-6af36af24cfb.jpg)
 
+## Software Requirements
+1) Operating System: Windows/Mac/Linux
+2) Browser: Chrome/Firefox/Edge
+3) Email Web based client: Gmail 
 
 ## CONCLUSION :
 The project we have implemented “NOODLE”, is an
@@ -62,8 +66,8 @@ is great for any project that needs speed.
 
 
 ## REFERENCES
-• Bootstrap reference: https://getbootstrap.com/
-• HTML/CSS/JavaScript reference: https://developer.mozilla.org/en-US/
-• Node.js reference: https://nodejs.org/en/docs/
-• Express.js reference: https://expressjs.com/en/api.html
-• MongoDB reference: https://docs.mongodb.com/manual/reference/databasereferences/
+1)  Bootstrap reference: https://getbootstrap.com/    
+2)  HTML/CSS/JavaScript reference: https://developer.mozilla.org/en-US/
+3)  Node.js reference: https://nodejs.org/en/docs/
+4)  Express.js reference: https://expressjs.com/en/api.html
+5)  MongoDB reference: https://docs.mongodb.com/manual/reference/databasereferences/
